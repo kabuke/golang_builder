@@ -26,6 +26,8 @@ RUN go mod tidy
 
 RUN CGO_ENABLED=1 GOARCH=amd64 GOOS=linux CC=x86_64-linux-gnu-gcc go build -o ${APPNAME} ./main.go 
 
+# CMD ["cp", "${APPNAME}", "/Source/${APPNAME}"]
+
 # final stage
 FROM scratch
 

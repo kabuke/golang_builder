@@ -25,3 +25,13 @@ golang特規編譯器，預設是限定產出 os:linux arch:amd64 的程式
 
 4.  如果有其他的編譯需求可以自行修改 BuildExeDockerfile 裡的建立參數
 ```
+
+備註:
+
+```
+BuildExeDockerfile 中 
+# final stage
+以下的部份是為了縮減 docker image 的容量而作的，如果不需要可以註解掉並且打開
+# final stage 上方的
+# CMD ["cp", "${APPNAME}", "/Source/${APPNAME}"]
+```

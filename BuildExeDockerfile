@@ -34,3 +34,11 @@ FROM scratch
 COPY --from=BUILDER /Source/${APPNAME} /Source/${APPNAME}
 
 CMD ["cp", "${APPNAME}", "/Source/${APPNAME}"]
+
+# 使用Alpine要編含cgo的程式時需要注意
+# 包名	            用處
+# ca-certificates  [可選] CA 證書，方便使用 TLS
+# tzdata	       [可選] 時區配置，方便 GORM 等需要處理時間的場景
+# libc6-compat	   [必選] C 標準庫
+# libgcc	       [必選] GCC 相關庫，CGO 編譯的程式會依賴
+# libstdc++	       [必選] C++ 標準庫
